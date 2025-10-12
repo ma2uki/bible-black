@@ -52,6 +52,7 @@ body {
 }
 .text-message {
     position: absolute;
+    top:0;
     background: radial-gradient(ellipse at center, rgba(255,182,193,0.5) 0%, transparent 80%);
     color:#fff;
     font-size: 3.2rem;
@@ -64,6 +65,10 @@ body {
     border: none
 }
 .message-long {
+    font-size: 2.2rem;
+    padding: 1.5rem 2rem;
+}
+.message-semilong {
     font-size: 2.2rem;
     padding: 1.5rem 2rem;
 }
@@ -339,9 +344,9 @@ footer {
 
 
 /*
-DESKTOP SIZE
+smapto SIZE
 ================================================ */
-@media(min-width: 800px){
+@media(max-width: 480px){
 /* COMMON */
     .title {
         margin-bottom: 3rem;
@@ -350,7 +355,18 @@ DESKTOP SIZE
         color: var(--brown);
         background: var(--light-green);
     }
-
+    .text-message {
+        font-size: 2.2rem;
+        padding: 1.5rem 2rem;
+    }
+    .message-long {
+        font-size: 1.5rem;
+        padding: 1.5rem 2rem;
+    }
+    .message-semilong {
+    font-size: 1.9rem;
+    padding: 1.5rem 2rem;
+}
 /* GALLERY */
     .gallery {
         flex-direction: row;
@@ -374,3 +390,4 @@ DESKTOP SIZE
         transition: .4s;
     }
 
+}
