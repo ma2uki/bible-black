@@ -60,7 +60,11 @@ document.addEventListener('DOMContentLoaded', function () {
   const prevBtn = document.querySelector('.prev-btn');
   const nextBtn = document.querySelector('.next-btn');
   const dots = document.querySelectorAll('.dot');
+  const textDisplay = document.querySelector('.text-display');
   let current = 0;
+  let touchstartX = 0;
+  let touchendX = 0;
+  const threadhold = 50; // スワイプと認識する最小距離
 
   function showPage(idx) {
     items.forEach((el, i) => {
@@ -95,8 +99,31 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
   showPage(current);
-});
+  textDisplay.addEventListener('touchstart', e => {
+    touchstartX = e.changedTouches[0].screenX;
+  },false);
 
+  textDisplay.addEventListener('touchend', e => {
+    touchendX = e.changedTouches[0].screenX;
+    handleGesture();
+  },false)
+function handleGesture(){
+  const diff = touchendX - touchstartX;
+  if (Math.abs(diff) < threadhold){
+    return;
+  }
+  if(diff > 0){
+    current = (current - 1 + items.length) % items.length;
+    showPage(current);
+  }
+  else{
+    current = (current + 1) % items.length;
+    showPage(current);
+  }
+  
+}
+
+});
 
 // particles-ga用パーティクル初期化
 document.addEventListener('DOMContentLoaded', function () {
