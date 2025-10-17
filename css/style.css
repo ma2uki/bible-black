@@ -1,207 +1,7 @@
-body {
-    background-color: black;
-}
-
-
-.text-display {
-    position: relative;
-    width: 95vw;
-    margin: 0 auto;
-    background: linear-gradient(
-        135deg,
-        rgba(0,0,0,0.3),
-        rgba(255,182,193,0.15),
-        rgba(255,218,185,0.12),
-        rgba(0,0,0,0.25)
-    );
-}
-
-.text-item {
-    display: none;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transform: rotateY(-90deg) scale(0.95);
-    transition: all 0.8s cubic-bezier(.77,0,.18,1);
-    perspective: 1200px;
-    transform-origin: center right;
-}
-
-.text-item.active {
-    display: flex;
-    position: relative;
-    opacity: 1;
-    transform: rotateY(0) scale(1);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-}
-
-/* 次のページに移動する時の効果 */
-.text-item.next {
-    transform: rotateY(90deg) scale(0.95);
-    opacity: 0;
-}
-
-/* 前のページに移動する時の効果 */
-.text-item.prev {
-    transform: rotateY(-90deg) scale(0.95);
-    opacity: 0;
-}
-.text-message {
-    position: absolute;
-    top:0;
-    background: radial-gradient(ellipse at center, rgba(255,182,193,0.5) 0%, transparent 80%);
-    color:#fff;
-    font-size: 3.2rem;
-    text-align: center;
-    letter-spacing: 0.05em;
-    line-height: 1.4;
-    padding: 2.2rem 2.5rem;
-    max-width: 92vw;
-    margin: 0 auto;
-    border: none
-}
-.message-long {
-    font-size: 2.2rem;
-    padding: 1.5rem 2rem;
-}
-.message-semilong {
-    font-size: 2.2rem;
-    padding: 1.5rem 2rem;
-}
-.text-image {
-    width: 70vw;
-    height: 70vh;
-    opacity: 0.3;
-    z-index: 1;
-    filter: blur(2px);
-}
-.message-nav {
-    /* position: absolute; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    gap: 1.5rem;
-}
-.nav-btn {
-    background: rgba(255,255,255,0.2);
-    border: none;
-    border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
-    color: #fff;
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 10;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    transition: background 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.nav-btn:hover {
-    background: rgba(255,255,255,0.4);
-}
-.nav-dots {
-    display: flex;
-    gap: 0.5rem;
-}
-.nav-icon{
-    color: rgba(255,255,255,0.8);
-}
-.dot {
-    width: 0.9rem;
-    height: 0.9rem;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.3);
-    border: 1px solid #fff;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-}
-.dot.active {
-    color: rgba(255,218,185,0.8);
-    background: #fff;
-    transform: scale(1.2);
-}
 @charset 'UTF-8';
 
-/*
-COMMON
-================================================ */
-p {
-    line-height: 1.7;
-}
-img {
-    max-width: 100%;
-}
-.title {
-    font-family: var(--oswald-font);
-    font-size: min(10vw, 4rem);
-    margin-bottom: 2rem;
-}
-.btn {
-    color: var(--white);
-    background: var(--brown);
-    border: 1px solid var(--brown);
-    text-decoration: none;
-    padding: 1rem;
-    display: inline-block;
-    margin: 2rem 0;
-    transition: .4s;
-}
-.fadein {
-    opacity: 0;
-}
-/* Fade-in animations */
-.fadein-title {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 3s ease forwards;
-}
-
-.fadein-image {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 3s ease forwards;
-}
-
-.fadein-message {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 3s ease forwards;
-    animation-delay: 0.5s; /* 画像の1秒後に表示 */
-}
-
-.fadein-footer {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 3s ease forwards;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/*
-LAYOUT
-================================================ */
-.wrapper {
-    max-width: 38rem;
-    margin: auto;
-    padding: 0 1rem;
+body {
+    background-color: black;
 }
 
 /*
@@ -293,7 +93,6 @@ header img {
 }
 
 
-
 /* GALLERY
 ================================================ */
 
@@ -309,6 +108,197 @@ header img {
     position: relative;
     min-height: 400px; /* 必要に応じて調整 */
 }
+
+
+
+.text-display {
+    position: relative;
+    width: 95vw;
+    margin: 0 auto;
+
+}
+
+.text-item {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.text-item.active {
+    display: flex;
+    position: relative;
+    opacity: 1;
+    transform: rotateY(0) scale(1);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+
+.text-message {
+    position: absolute;
+    top:0;
+    background: radial-gradient(ellipse at center, rgba(255,182,193,0.5) 0%, transparent 80%);
+    color:#fff;
+    font-size: 3.2rem;
+    text-align: center;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+    padding: 2.2rem 2.5rem;
+    max-width: 92vw;
+    margin: 0 auto;
+    border: none
+}
+.message-long {
+    font-size: 2.2rem;
+    padding: 1.5rem 2rem;
+}
+.message-semilong {
+    font-size: 2.2rem;
+    padding: 1.5rem 2rem;
+}
+.text-image {
+    width: 70vw;
+    height: 70vh;
+    opacity: 0.3;
+    z-index: 1;
+    filter: blur(2px);
+    animation: changeMessage 2s ease forwards;
+}
+.message-nav {
+    /* position: absolute; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    gap: 1.5rem;
+}
+.nav-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-btn:hover {
+    background: rgba(255,255,255,0.4);
+}
+.nav-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+.nav-icon{
+    color: rgba(255,255,255,0.8);
+}
+.dot {
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    border: 1px solid #fff;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+.dot.active {
+    color: rgba(255,218,185,0.8);
+    background: #fff;
+    transform: scale(1.2);
+}
+
+
+/*
+COMMON
+================================================ */
+p {
+    line-height: 1.7;
+}
+img {
+    max-width: 100%;
+}
+.title {
+    font-family: var(--oswald-font);
+    font-size: min(10vw, 4rem);
+    margin-bottom: 2rem;
+}
+.btn {
+    color: var(--white);
+    background: var(--brown);
+    border: 1px solid var(--brown);
+    text-decoration: none;
+    padding: 1rem;
+    display: inline-block;
+    margin: 2rem 0;
+    transition: .4s;
+}
+.fadein {
+    opacity: 0;
+}
+/* Fade-in animations */
+.fadein-title {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 3s ease forwards;
+}
+
+.fadein-message {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 3s ease forwards;
+    animation-delay: 1s; /* 画像の1秒後に表示 */
+}
+
+.fadein-footer {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 3s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes changeMessage {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.3;
+    }
+}
+
+
+/*
+LAYOUT
+================================================ */
+.wrapper {
+    max-width: 38rem;
+    margin: auto;
+    padding: 0 1rem;
+}
+
+
+
+
 
 /*
 FOOTER
