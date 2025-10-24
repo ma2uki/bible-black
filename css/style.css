@@ -89,6 +89,9 @@ header img {
     object-position: center top;
     opacity: var(--video-opacity);
 }
+header a {
+    text-decoration: none;
+}
 
 #particles-js-canvas-el,
 .header-text
